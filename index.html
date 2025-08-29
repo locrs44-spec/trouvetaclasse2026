@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Classe 2025-2026</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #e1e7f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      width: 360px;
+      text-align: center;
+    }
+
+    /* Logo fictif en haut */
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #003366;
+      margin-bottom: 25px;
+      font-size: 22px;
+    }
+
+    input {
+      width: 85%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #003366;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #0059b3;
+      transform: scale(1.03);
+    }
+
+    #result {
+      margin-top: 25px;
+      font-weight: bold;
+      color: #d32f2f;
+    }
+
+    .warning {
+      font-size: 13px;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    /* Loader circulaire */
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #003366;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+      display: none; /* caché par défaut */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h2>Connexion Classe 2025-2026</h2>
+    <input type="text" id="user" placeholder="Identifiant"><br>
+    <input type="password" id="pass" placeholder="Mot de passe"><br>
+    <button onclick="login()">Se connecter</button>
+
+    <!-- Loader circulaire -->
+    <div class="loader" id="loader"></div>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function login() {
+      let user = document.getElementById("user").value;
+      let loader = document.getElementById("loader");
+      let result = document.getElementById("result");
+
+      // Affiche le loader et cache le résultat
+      loader.style.display = "block";
+      result.innerHTML = "";
+
+      // Simule un délai de 2 secondes
+      setTimeout(function() {
+        loader.style.display = "none";
+
+        // Lycée fixe et classes aléatoires
+        let lycee = "Lycée Grand Air ";
+        let classes = ["1ère1", "1ère2", "1ère3", "1ère4", "1ère5", "1ère6", "1ère7"];
+        let classeAleatoire = classes[Math.floor(Math.random() * classes.length)];
+
+        result.innerHTML =
+          "Bienvenue " + user + " 🎉<br>" +
+          "Ton lycée : " + lycee + "<br>" +
+          "Ta classe : " + classeAleatoire + "<br><br>" ;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
